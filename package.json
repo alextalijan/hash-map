@@ -1,6 +1,7 @@
 {
   "name": "es-lint-template",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is my template for ESLint and Prettier formatters.",
   "main": "index.js",
   "scripts": {
