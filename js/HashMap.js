@@ -28,6 +28,22 @@ class HashMap {
 
     this.buckets[this.hash(key)] = value;
   }
+
+  get(key) {
+    if (this.buckets[key]) {
+      return this.buckets[key];
+    }
+
+    return null;
+  }
+
+  has(key) {
+    if (this.buckets[key]) {
+      return true;
+    }
+
+    return false;
+  }
 }
 
 export default HashMap;
