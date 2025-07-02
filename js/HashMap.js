@@ -2,6 +2,7 @@ class HashMap {
   constructor(capacity, loadFactor) {
     this.capacity = capacity;
     this.loadFactor = loadFactor;
+    this.buckets = {};
   }
 
   hash(key) {
@@ -13,6 +14,19 @@ class HashMap {
     }
 
     return hashCode;
+  }
+
+  set(key, value) {
+    if (this.buckets.length > this.capacity * this.loadFactor) {
+      const doubledBuckets = {};
+      for (const hash in this.buckets) {
+        doubledBuckets[hash] = this.buckets[hash];
+      }
+
+      this.buckets = doubledBuckets;
+    }
+
+    this.buckets[this.hash(key)] = value;
   }
 }
 
