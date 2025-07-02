@@ -67,6 +67,19 @@ class HashMap {
   keys() {
     return Object.keys(this.buckets);
   }
+
+  values() {
+    return Object.values(this.buckets);
+  }
+
+  entries() {
+    const pairs = [];
+    for (const key in this.buckets) {
+      pairs.push([key, this.buckets[key]]);
+    }
+
+    return pairs;
+  }
 }
 
 export default HashMap;
