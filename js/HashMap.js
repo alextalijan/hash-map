@@ -57,6 +57,16 @@ class HashMap {
   length() {
     return Object.keys(this.buckets).length;
   }
+
+  clear() {
+    for (const key in this.buckets) {
+      delete this.buckets[key];
+    }
+  }
+
+  keys() {
+    return Object.keys(this.buckets);
+  }
 }
 
 export default HashMap;
