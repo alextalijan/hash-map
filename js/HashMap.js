@@ -30,19 +30,32 @@ class HashMap {
   }
 
   get(key) {
-    if (this.buckets[key]) {
-      return this.buckets[key];
+    if (this.buckets[this.hash(key)]) {
+      return this.buckets[this.hash(key)];
     }
 
     return null;
   }
 
   has(key) {
-    if (this.buckets[key]) {
+    if (this.get(key)) {
       return true;
     }
 
     return false;
+  }
+
+  remove(key) {
+    if (this.has(key)) {
+      delete this.get(key);
+      return true;
+    }
+
+    return false;
+  }
+
+  length() {
+    return Object.keys(this.buckets).length;
   }
 }
 
